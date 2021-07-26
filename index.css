@@ -28,7 +28,6 @@ html{
     .leftopp{margin: 0;}
     .rightcol{margin: 10px;}    
     #col4{margin-top: 0;}
-    #presentation{margin-top: 0;}
     #col-details{margin-left: 0;}
     #postcol{width: 80%;}
     #opn{font-size: 35px;}
@@ -64,7 +63,6 @@ html{
     .arrrev{flex-flow: row wrap;}
     #coin{margin-top: -200px;}
     #col4{margin-top: 20px;}
-    #presentation{margin-top: 150px;}
     #col-details{margin-left: 7.4%;}
     #postcol{width: 50%;}
     #newbie{width: 60%;}
@@ -254,7 +252,6 @@ caption.sectionHeadings{
     height: 367px;
 }
 #presentation{
-    -ms-flex-order: 1;
     width: 27.19%;
     min-width: 367px;
     height: 284px;
@@ -655,7 +652,7 @@ table, th, td{
 }
 #wom{
     padding-bottom: 40px;
-    background-image: url("Images/GirlWithPhone2.jpg");
+    background-image: url("images/GirlWithPhone2.jpg");
     background-size: cover;
     background-position: 50% 40%;
     height: 316px;
@@ -754,8 +751,9 @@ table, th, td{
 }
 #git{
     background-color: #E6F0FF;
-    padding-top: 70px;
-    padding-bottom: 100px;
+    margin-top: 90px;
+    padding-top: 65px;
+    padding-bottom: 95px;
 }
 #gitdiv{
     width: 51.85%;
@@ -777,7 +775,7 @@ table, th, td{
     padding-bottom: 20px;
 }
 #cntdet{
-    margin-top: 58px;
+    margin-top: 38px;
     margin-bottom: 40px;
     font-size: 20px;
 }
@@ -920,7 +918,6 @@ table, th, td{
     text-align: center;
     color: #FFFFFF;
 }
-
 footer{
     position: relative;
     width: auto; 
