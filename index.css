@@ -31,17 +31,25 @@ html{
     #presentation{margin-top: 0;}
     #col-details{margin-left: 0;}
     #postcol{width: 80%;}
+    #opn{font-size: 35px;}
+    #opn2{font-size: 16px;}
+    #newbie{width: 90%;}
+    #nubitxtHd{font-size: 17px; margin-top: 20px;}
 }
 @media (min-width:600px) {
     #adtxt{font-size: 21px;}
     #exp{padding: 50px 50px;}
     #fdrcol{width: 85%;}
     #postcol{width: 70%;}
+    #opn{font-size: 39px;}
+    #opn2{font-size: 17px;}
+    #newbie{width: 75%;}
 }
 @media (min-width:700px) {
     #topcol1{width: 80%;}
     #topimg{width: 80%;}
-}
+    #nubitxtHd{font-size: 20px;}
+}    
 @media (min-width:800px) {
     #adtxt{font-size: 25px;}
     #fdrcol{width: 60%;}
@@ -59,12 +67,14 @@ html{
     #presentation{margin-top: 150px;}
     #col-details{margin-left: 7.4%;}
     #postcol{width: 50%;}
+    #newbie{width: 60%;}
 }
 @media (min-width: 1036px) {
-    .arr2{flex-direction: row;}
+    .arr2{flex-direction: row; justify-content: center; align-items: flex-start;}
     #crbox{margin-bottom: 0;}
     #optBbox{margin-left: 100px;}
     #adtxt{font-size: 26px;}
+    #newbie{width: 55%;}
 }
 @media (min-width:1101px) {
     #exp{width: 53%;}
@@ -72,7 +82,7 @@ html{
     #topimg{width: 53%;}
     .arrtop{flex-flow: row;}
 }
-@media (min-width:1199px) {
+@media (min-width:1200px) {
     #adtxt{font-size: 29x;}
     #fdrcol{width: 50%;}
 }    
@@ -82,8 +92,8 @@ html{
 }
 
 body, html{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     background-color: #ededed;
     font-family: Avenir, sans-serif;
 }
@@ -97,7 +107,6 @@ body, html{
 }
 .arr2{
     display: flex;
-    justify-content: center;
 }
 .arr3{
     display: flex;
@@ -137,14 +146,12 @@ body, html{
 #opn{
   margin-top: 40px;
   font-family: montserrat, sans-serif;
-  font-size: 39px;
   font-weight: bold;
   color: #FC5C65;
 }
 #opn2{
     margin-top: 10px;
     font-family: montserrat, sans-serif;
-    font-size: 17px;
     font-weight: bold;
     color: #FFFFFF;
 }
@@ -192,7 +199,7 @@ body, html{
     display: inline-block;
     margin-left: 2px;
     margin-right: 2px;
-    width: 420px;
+    width: 30.8%;
     min-width: 400px;
 }
 .leftopp{
@@ -212,7 +219,8 @@ p{
 }
 caption.sectionHeadings{
     text-align: center;
-    width: 418;
+    width: 30.74%;
+    min-width: 394;
     height: 49;
     font-family: montserrat, sans-serif;
     font-size: 28px;
@@ -257,7 +265,7 @@ caption.sectionHeadings{
 #col-details{
     -ms-flex-order: 2;
     width: 37%;
-    min-width: 500px;
+    min-width: 400px;
 }
 .dets{
     background-color: #f8f8f8;
@@ -358,7 +366,8 @@ caption.sectionHeadings{
 }
 .cencol{
     margin: 0 auto;
-    width: 438px;
+    width: 32%;
+    min-width: 400px;
     text-align: justify;
 }
 #aftdiv{
@@ -368,7 +377,7 @@ caption.sectionHeadings{
     display:inline-block;
     margin-right: 0%;
     width: 36.67%;
-    min-width: 495px;
+    min-width: 400px;
     height: 353.5px;
     background: #422238;
 }
@@ -387,7 +396,8 @@ caption.sectionHeadings{
     margin-bottom: 5px;
 }
 #aftimg{
-    width: 495px;
+    width: 36.4%;
+    min-width: 400px;
     height: 353.5px;
     object-fit: cover;
 }
@@ -468,6 +478,10 @@ table, th, td{
 .boxy{ 
     display: inline-block;
 }
+#bigbox{
+    width: min-content;
+    margin: 0 auto;
+}
 .subH{
     font-family: "Linotype Didot", sans-serif;
     font-size: 25px;
@@ -475,7 +489,8 @@ table, th, td{
     margin-bottom: 16px;
 }
 .boxwd{
-    width: 440px;
+    width: 32.4%;
+    min-width: 400px;
 }
 .imgcoins{
     height: 292px;
@@ -501,7 +516,7 @@ table, th, td{
 }
 .cbt{
     display: inline-block;
-    margin-left: 0px;
+    margin-left: 350px;
     border: 0px;
     border-radius: 5px;
     font-family: "open sans", sans-serif;
@@ -523,20 +538,21 @@ table, th, td{
     border-top-right-radius: 10px;
 }
 #optBbox{
-    vertical-align: top;
+    margin-top: 0;
 }
 #fiatbox{
-    height: 350px;
+    height: 390px;
     background-color: #DCF3F7;
 }
 #nubipin{
     display: flex;
     justify-content: center;
-    width: 450px;
+    width: 33%;
+    min-width: 400px;
     height: 30px;
     margin: 0 auto;
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 #nubipinb{
     border-radius: 3px;
@@ -555,7 +571,6 @@ table, th, td{
     color: #ffeeee;
 }
 #tips{
-    
     margin-left: 5px;
 }
 #lnhow{
@@ -563,9 +578,10 @@ table, th, td{
 }
 #newbie{
     display: none;
-    width: 700px;
+    min-width: 400px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 80px;
     background-color: #e4e4e4;
     border: gray;
     border-style: outset;
@@ -581,7 +597,6 @@ table, th, td{
 }
 #nubitxtHd{
     padding-top: 45px;
-    font-size: 20px;
     text-align: center;
 }
 #nucol{
@@ -589,8 +604,8 @@ table, th, td{
 }
 .nubi{
     display: inline-block;
-    width: 500px;
-    margin-left: 100px;
+    width: 100%;
+    padding: 0 30px;
     text-align: justify;
     margin-bottom: 60px;
 }
@@ -604,7 +619,8 @@ table, th, td{
     margin: 0 auto;
 }
 #allbox{
-    width: 440px;
+    width: 32.4%;
+    min-width: 400px;
     height: 292px;
     background-color: #f7ded2;
     padding-left: 10px;
@@ -719,7 +735,7 @@ table, th, td{
 .rightcol{
     display: inline-block;
     margin-right: 2px;
-    width: 420px;
+    width: 31%;
     min-width: 400px;  
 }
 #earlybird{
@@ -743,7 +759,7 @@ table, th, td{
 }
 #gitdiv{
     width: 51.85%;
-    min-width: 500px;
+    min-width: 400px;
     margin: 0 auto;
 }
 .gittx{
@@ -853,8 +869,8 @@ table, th, td{
     margin-bottom: 30px;
 }
 #imgfdr{
-    width: 400px;
-    height: 400px;
+    width: 390px;
+    height: 390px;
     object-fit: cover;
     border-radius: 50%;
     margin-top: 30px;
@@ -889,10 +905,11 @@ table, th, td{
 #ovcopsec{
     position: fixed;
     bottom: 10px;
+    left: 50%;
+    margin-left: -55px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
     width: 110px;
     height: 40px;
     background: rgba(39, 39, 36, 0.9);
@@ -903,9 +920,6 @@ table, th, td{
     text-align: center;
     color: #FFFFFF;
 }
-
-
-
 
 footer{
     position: relative;
