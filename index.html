@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>Qrystalnet</title>
+    <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
+    <link href="index.css" rel="stylesheet">
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+
+      img{ 
+        max-width: 100%;
+      }
+      html{
+        font-size: 100%;
+      }
+
+      @media (min-width:1px) {
+        #menubars{visibility: visible;}
+        #mainmenu{display: none;}
+        #lgl{display: none;}
+        #ctct{display: none;}
+        #btndash{visibility:hidden;}
+        #cmp{display: none;}
+        #more{display: inline;}        
+        #socialBar{visibility: none;}
+      }
+      @media (min-width:911px) {
+        #menubars{visibility: hidden;}
+        #mainmenu{display: inline-block;}
+      }
+      @media (min-width:1101px) {
+        #lgl{display: inline-block;}
+        #ctct{display: inline-block;}
+        #more{display: none;}
+      }
+      @media (min-width:1200px) {
+        #btndash{visibility: visible;}
+        #cmp{display: inline-block;}
+        #more{display: none;}
+      }
+      @media (max-width:1320px) {
+        #socialBar{visibility: visible;}
+      }
+
+      body, html{
+        margin: 0px;
+        padding: 0px;
+        background-color: #ededed;
+        font-family: Avenir, sans-serif;
+      }
+      .clk{
+        cursor: pointer;
+      }
+      #header{
+        width: 100%;
+        height: 90px;
+        position: relative;
+        background: #1F232C;
+      }
+      #logo{
+        margin-left: 100px;
+        margin-top: 26px;
+        width: 24px;
+        height: 22px;
+      }
+      #siteName{
+        display: inline-block;
+        margin-left: 7px;
+        margin-top: 22px;
+        font-family: avenir, helvetica, sans-serif;
+        font-size: 24px;
+        color: #ffffff;
+      }
+      nav.menuitem{
+        display: inline-block;
+        margin-left: 130px;
+        margin-top: 27px;
+        background: #1F232C;
+      }
+      a.menuitem{
+        margin-left: 15px;
+        font-family: avenir, helvetica, sans-serif;
+        font-size: 15px;
+        color: #ffffff;
+        text-decoration: none;  
+      }
+      a.menuitem:hover{
+        color: #FC5C65;
+      }
+      a.menuitem:focus{
+        color: #FC5C65;
+      }
+      a.menuitem:active{
+        color: #fad098;
+      }
+      #exmn{
+        width: 150px;
+        background: #1F232C;
+        z-index: 2;
+      }
+      .vmn{
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      .btn{
+        width: 97px;
+        height: 25px;
+        border-radius: 5px;
+        border: 0px;
+        font-family: "open sans", sans-serif;
+        font-size: 15px;
+        color:#ffffff;
+      }
+      #btndash{
+        display: inline-block;
+        margin-top: 20px;
+        margin-left: 20px;
+        background: #322A42;
+        border: 0px;
+        visibility: hidden;
+      }
+      #btndash:hover {
+        background: #E6F0FF;
+        color: #3B2F4F;
+      }    
+      #socialBar{
+        display: inline-block;
+        margin-top: 24px;
+        margin-left: 20px;
+      }
+      .socials{
+        width: 24px; 
+        height: 24px;
+        margin-left: 13px;
+      }
+      #usrarea{
+        width: 50px;
+        visibility: hidden;
+      }
+      #usrnm{
+        font-family: Verdana, Geneva, Tahoma, Spinnaker, sans-serif;
+        font-size: 12px;
+        color: #c7c7c7;
+        text-align: right;
+        text-overflow: clip;
+        position: absolute;
+        top: -25%;
+        right: 5%;
+      }
+      #usrmn{
+        margin-left: 0px;
+        color: #a5ecf8;
+        text-align: right;
+        background: transparent;
+        border: 0px;
+        position: absolute;
+        top: 35%;
+        right: 4.8%;
+      }
+      .mnbtn{
+        position: absolute;
+        top: 36.7%;
+        right: 5.93%;
+      }
+      #btnlin{
+        background: #458b99;
+        z-index: 1;
+      }
+      #btnlin:hover{
+        color: #ffffff;
+        background: #2cb8b8;
+      }
+      #btnlou{
+        background: #322A42;
+        visibility: hidden;
+      }
+      #btnlou:hover{
+        color: #3B2F4F;
+        background: #E6F0FF;
+      }
+      #btnsup{
+        font-size: 13px;
+        color: #C7C7C7;
+        background: #1F232C;
+        position: absolute;
+        top: 70.89%;
+        right: 6.2%;
+      }
+      #btnsup:hover{
+        color: #E6F0FF;
+      }
+      #menubars{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 30.38%;
+        left: 20px;
+      }
+      .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+      }
+      @-webkit-keyframes animatezoom {
+        from {-webkit-transform: scale(0)}
+        to {-webkit-transform: scale(1)}
+      }
+      @keyframes animatezoom {
+        from {transform: scale(0)}
+        to {transform: scale(1)}
+      }
+      .container{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        z-index: 3;
+        display: none;
+      }
+      .center{
+        text-align: center;
+      }
+      .central{
+        margin: 0 0 20px 10px;
+      }
+      h1{
+        font-family: "Lulo Clean", helvetica, sans-serif;
+        font-size: 48px;
+        font-weight: bold;
+        color: #64D2E8;
+      }
+      h2{
+        font-family: "Lulo Clean", helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        color: #F7F5E1;
+      }
+      h3{
+        font-family: "Futura Light", helvetica, sans-serif;
+        font-size: 20px;
+        color: #C3E8D4;
+      }
+      h4{
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 170%; 
+      }
+      .alert{
+        font-family: Arial, sans-serif;
+        font-size: 17px;
+        color: #ffffff;
+        line-height: 150%; 
+      }
+      .btntxt{
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;    
+        line-height: 170%; 
+      }
+      .lmbtn{
+        margin: 0 auto;
+        width: 99px;
+        height: 35px;
+        background: #64D2E8;
+        border: none;
+        border-radius: 7px;
+        font-family: overlock, helvetica, sans-serif;
+        font-size: 19px;
+        color: #000000;
+      }
+      .lmbtn:hover{
+        background: #467079;
+        color: #ffffff;
+      }
+      #entrylogo{
+        width: 70px;
+        height: 70px;
+      }
+  </style>
+    <script src="https://kit.fontawesome.com/73f0f3b60e.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body id="top" style="background: #fdfafb" onload="init()">
+    <header id="header">
+      <img src="Images/Logo.png" alt="Company Logo" class="clk" id="logo">
+      <h3 class="clk" id="siteName">Qrystalnet</h1>
+      <nav class="menuitem" id="mainmenu">
+        <a href="index.html" class="menuitem">Home</a>
+        <a href="white paper" class="menuitem" id="wp">White Paper</a>
+        <a href="#how to buy" class="menuitem" id="htb">How to Buy</a>
+        <a href="legal" class="menuitem" id="lgl">Legal</a>
+        <a href="contact" class="menuitem" id="ctct">Contact</a>
+        <a href="company" class="menuitem" id="cmp">Company</a>
+        <a href="#" class="menuitem" id="more">More</a>  
+      </nav>
+      <button type="button" name="navtomy" class="btn clk" id="btndash">Dashboard</button>
+      <!--
+      <div id="socialBar">
+        <a href="https://facebook.com/" alt="Facebook Logo" target="_blank"></a><span class="socials" style="color: rgb(66, 103, 178)"><i class="fab fa-facebook-square fa-5x"></i></span></a>
+        <a href="https://twitter.com/" alt="Twitter Logo" target="_blank"><span class="socials" style="color: #00acee"><i class="fab fa-twitter-square fa-5x"></i></span></a>
+        <img src="Images/qr.jpg" class="socials2">
+      </div>
+      -->
+      <div id="usrarea">
+        <h6 class="usr" id="usrnm"><span id="liu">James Gross</span></h6>
+        <nav>
+          <a href="#" class="menuitem" id="usrmn">V</a>
+        </nav>
+      </div>  
+      <button name="signin" class="btn mnbtn clk" id="btnlin" onclick="signIn()" onmouseover="showBtn()">Sign in</button>
+      <button name="logout" class="btn mnbtn clk" id="btnlou" onclick="signOut();">Logout</button>
+      <button name="signup" class="btn clk" id="btnsup" onclick="signUp()" onmouseover="showBtn()" onmouseout="hideBtn()" onviewportleave="hideBtn()" style="display: none;">...or Sign Up</button>
+      <span id="menubars" class="menuwrap clk" style="color: #f3fafd"><i class="fas fa-bars fa-2x"></i></span>
+    </header>
+
+    <section class="s1">
+      <div class="arrtop">
+        <div id="topcol1">
+          <p class="spcn centered" id="opn">An improved way of life</p>
+          <p class="spcn centered" id="opn2">Qrystal: A currency to power the future, starting now.</p>
+          <div id="topbx">
+            <p class="optxt optxt2" id="opt1">The emergence of Bitcoin in 2009 prompted the start of a new way of life for mankind. With blockchain and decentralized digital currencies came the opportunity to implement positive change on a scale never before seen. Disruptions have since taken place in finance, healthcare and many other fields. We aim to continue this tradition with our apps, making finance even more inclusive, and increasing efficiency in shopping and healthcare delivery, among other things.</p>
+            <br/>
+            <p class="optxt optxt2" id="opt2">The Qrystalnet blockchain is the foundation on which our apps and services will be built. And the cryptocurrency Qrystal is the means of exchange that will be used in these apps and on other Qrystalnet platforms.</p>
+          </div>
+        </div>
+        <img src="Images/Opener.jpg" id="topimg" style="object-fit: cover; object-position: 50% 0;"/>
+      </div> 
+    </section>
+    
+    <section class="s2" id="opstr">
+      <div class="arrrev content">
+        <div class="leftcol">
+          <h1 class="sectionHeadings">INTRODUCING QRYSTAL</h1>
+          <p class="pgtxt">Built on the Qrystalnet blockchain, Qrystal is a utility token designed to be used for making payments and fulfilling commitments in the Qrystalnet app and on all the other platforms that make up the Qrysytalnet ecosystem.
+            <br><br>The immediate use-case for Qrystal is the Qrystalnet app, a De-Fi app that allows coin staking and P2P lending. The app uses a new, unique method for calculating a user's credit score: evaluating not just their financial history but also their work output history. Some of the data that will be used in this computation will be derived from Papyra, our blockchain-based registry. 
+            <br><br>Following closely on the heels of the flagship app will be: Qazar, an online marketplace and marketing network; and SoChan, a social media and streaming app. An urban development enterprise, Fontana, rounds out the list. Each of these platforms is a standalone product that will be enhanced in some way by one or more of the others. They are all connected by their common foundation in Qrystalnet and usage of Qrystal tokens.
+            <br><br><strong>One Crypto-Coin, Multiple Applications</strong>
+            <br>A unique proof-of event consensus mechanism allows Qrystal to be implemented in multiple use-cases. This makes it possible for Qrystal to be used on all of our platforms even though each one provides a different type of service from the others. The Qrystalnet white paper contains a more detailed description of the blockchain and cryptocurrency. Portions of the white paper are available <a href="white-paper.php" class="txt-link"><em>here</em></a>. You'll also find information on the company and the upcoming crowdsale therein.
+            <br><br><strong>Leveraging on the Strengths of Blockchain Technology</strong>
+            <br>The ease and transparency of transaction that blockchain makes possible have opened up worlds of opportunity in the financial space and in many other sectors. Qrystalnet will provide new, efficient and secure ways of doing things, building on existing models in some areas and blazing new trails in others.
+          </p>
+        </div>
+        <div class="leftopp" id="col4">
+          <img src="Images/Qrystl.png" id="coin">
+        </div>
+      </div>  
+    </section>
+
+    <section class="s2">
+      <div class="content">
+        <div class="arr5">
+          <img src="Images/Presentation.jpg" id="presentation" style="object-fit: cover; object-position: 40% 90%;">
+          <div class="leftopp boxy" id="col-details">
+            <p class="sectionHeadings" id="detHd">QRYSTAL: BASIC DETAILS</p>      
+            <table class="dets">
+              <tr>
+                <td class="tableData pgtxt rowtitle">Blockchain</td><td class="tableData pgtxt">Qrystalnet</td>
+              </tr>
+              <tr>
+                <td class="tableData pgtxt rowtitle">Coin Name</td><td class="tableData pgtxt">Qrystal</td>
+              </tr>
+              <tr>
+                <td class="tableData pgtxt rowtitle">Initial Coin Value</td><td class="tableData pgtxt">US$ 1</td>
+              </tr>
+              <tr>
+                <td class="tableData pgtxt rowtitle">Coin Function</td><td class="tableData pgtxt">Utility</td>
+              </tr>
+              <tr>
+                <td class="tableData pgtxt rowtitle">Use Cases*</td><td class="tableData pgtxt">
+                  <ul class="tableList">
+                    <li>QLift – P2P Loan app. Uses Qrystalnet Credit Compute (QCC), a new way to determine the credit score of an individual or organization;</li>
+                    <li>Qazar – online marketplace and decentralized marketing network;</li>
+                    <li>SoChan – personal assistant, social media and streaming app;</li>  
+                    <li>Fontana cities – urban settlements developed by Qazar's social enterprise, Fontana.</li>
+                  </ul></td>
+              </tr>
+            </table>
+            <br>
+            <p class="pgtxt shft">For the time being, Qrystal is not listed on any cryptocurrency exchange. This is deliberate, as we wish to keep its value static until the crowdsale is concluded. This way, market forces will not affect the value of the purchasers' coins before qrystals are activated. See the section titled <a href="#crwdtl" class="txt-link">Crowdsale Timeline</a> for details.</p>
+            <br/>
+            <p class="pgtxt subtxt shft" id="detsend">*These use-cases are discussed in greater detail in the Qrystalnet white paper.</p>
+          </div>
+        </div>  
+        <div id="sdmenublock">
+          <p id="sdmnhd">Jump to...</p>
+          <div id="sidemenu">
+            <ul class="pgtxt sdmnli">
+              <li><a href="#crwdtl" class="sdmnli">Crowdsale Timeline</a></li>
+              <li><a href="#htsect" class="sdmnli">How to Buy Qrystal Tokens</a></li>
+              <li><a href="#wom" class="sdmnli">Tell a Friend</a></li>
+              <li><a href="White-Paper" class="sdmnli">White Paper</a></li>
+              <li><a href="#exp" class="sdmnli">What is a Crowdsale?</a></li>
+              <li><a href="#precol" class="sdmnli">Don't Jump; Keep Reading</a></li>
+            </ul>
+          </div>
+          <button name="signup2" class="btn clk" id="button-signUp2">Sign up</button>
+          <br>
+          <p class="pgtxt" id="sI2"><em>Already have an account? <a href="Html/Signin" class="txt-link"><strong>Sign in</strong></a>.</em></p>
+        </div>
+      </div>          
+    </section>
+      
+    <section class="s2">
+      <div class="arr5 content">
+        <div class="leftcol" id="precol">
+          <h1 class="sectionHeadings" id="preC">PRE-SALE</h1>
+          <p class="pgtxt" id="pretx">The Crowdsale process begins with a pre-sale stage, which is a specified time-period just before the actual sale commences. During this time, we will engage in marketing for the product. We will also be selling coins to early buyers, effectively at a discount. We invite you to purchase qrystal coins during this time and, by doing so, become one of the first people to own qrystals. Details of the bonus rates on offer are provided below.
+          <br><br>
+          <strong>BONUS RATES</strong>
+          <br>
+          We've split the pre-ICO stage into three phases, with a different rate for each phase. They are:
+          <br><br>
+          <strong>1st Phase (25th July - 8th August, 2021)</strong>
+          <br>Persons who buy qrystals during the first two weeks of the pre-sale will get a bonus of 50%. This is our way of saying thanks for believing in the Qrystalnet project from the very beginning. 
+          <br><br>
+          <strong>2nd Phase (9th - 23rd August, 2021)</strong>
+          <br>You'll get a 25% bonus when you buy qrystals during the second phase. 
+          <br><br>
+          <strong>3rd Phase (24th - 31st August, 2021)</strong>
+          <br>Buying qrystals in the last week of August 2021, gets you a bonus of 15%. 
+          </p>
+          <br><br>
+          <div id="endbx">
+            <p class="pgtxt endnote">Pre-sale buyers will have the opportunity to gain early access to Qrystalnet's platforms when they go live; and receive special offers ocassionally on the Qrystalnet app.</p>
+          </div>  
+        </div>
+        <div class="leftopp" id="asdcol">
+          <img src="Images/Sale.jpg" id="sale">
+          <p class="pgtxt endnote2" id="salenoteHd">Notes</p>
+          <p class="pgtxt endnote2" id="salenote">1. For all three Pre-Sale phases, there is a cap on the number of tokens that will be sold. For each phase, if that number is reached before the set date, the phase will be closed and the succeeding phase will commence immediately. See the <a href="#crwdtl" class="txt-link">Crowdsale Timeline</a> for more on this. We will pre-announce the commencement of each new phase beforehand.
+          <br><br>  ​
+            2. The Qrystalnet blockchain will not be open to public use until after the conclusion of the crowdsale. This means, when you purchase qrystals they will be transferred to your account immediately but you won't be able to use them right away.
+            <br><br>
+            3. Qrystal is not listed on any exchange at the moment. This ensures that the value of your purchased qrystals will not be altered before you are able to use them. As soon as the crowdsale is concluded you will be able to use your qrystal coins as you wish, as well as utilize the registry and perform other functions on the Qrystalnet blockchain.</p>
+        </div>
+      </div>  
+    </section>
+    
+    <section class="s2">
+      <div class="arr content">
+        <div class="leftcol" id="crwdsect">
+          <h1 class="sectionHeadings" id="crwdHd">THE CROWDSALE</h1>
+          <p class="pgtxt" id="crwd">The crowdsale will commence at 12:01 AM Auckland time on 1st September 2021 and end at midnight Hawaii time on 30th September 2021 (or when all the coins on offer will have been sold, whichever happens first). 
+          <br/><br/>
+          As earlier stated, Qrystal coins will be locked in for the duration of the Crowdsale. The end of the Sale will coincide with the launch of the apps Qazar and SoChan. With these two and the Qrystalnet app, there'll be plenty to do with your qrystals from then on!</p>
+        </div>
+        <div class="leftopp" id="crwdasd">
+          <img src="Images/Crowdsale.jpg" id="crwdimg">
+        </div>
+      </div>  
+    </section>
+
+    <section class="s2">
+      <div class="content">
+        <div class="cencol" id="aftdiv">
+          <h1 class="sectionHeadings centered" id="aftHd">AFTER THE CROWDSALE</h1>
+          <p class="pgtxt" id="afttxt">As soon as the crowdsale is concluded, qrystal coins will be activated (i.e. unlocked). From then on, you'll be able to sell and transfer your qrystals, as well as using them to make purchases and payments on Qazar-owned platforms</p>
+        </div>
+        <div class="arr wrap" id="fac">
+          <div id="forall" class="fcol">
+            <p class="pgtxt centered" id="foralltxt"><strong>Qrystalnet is Designed for Everyday Use</strong></p>
+            <ul class="pgtxt" id="foralllist">
+              <li class="listy" style="line-height: 120%">Shop on Qazar.com: Pay securely and conveniently for a wide range of products and services sold by merchants across the globe</li>
+              <li class="listy">Buy and rent real estate</li>
+              <li class="listy">Stake qrystal coins and earn interest</li>
+              <li class="listy">Get P2P funding for your business</li>
+              <li class="listy">Pay for music, books, art and more on SoChan.com</li>
+              <li class="listy" style="line-height: 120%">Register your intellectual property, real estate and other forms of property on Papyra</li>
+              <li class="listy" style="line-height: 120%">Do more: The number of use-cases for qrystals will only grow with time!</li>
+            </ul>
+          </div>
+          <img src="Images/Afterward.jpg" alt="Busy Street" id="aftimg">
+        </div>
+      </div>    
+    </section>
+
+    <section class="s2">
+      <div class="content">
+        <h1 class="sectionHeadings centered" id="crwdtl">CROWDSALE TIMELINE</h1>
+        <table class="central centered">
+          <tr class="colori">
+            <th class="rowHeading pgtxt row1">Dates</th><th class="rowHeading pgtxt row2">Event</th><th class="rowHeading pgtxt row3">Remarks</th>
+          </tr>
+          <tr class="color2">
+            <td class="tableData2 dmarker row1">25th July – 8th August, 2021</td><td class="tableData2 row2">PRE-ICO SALE<br/>1st Phase</td><td class="tableData2 row3">50% bonus on each purchase of Qrystal coins (capped at 25,000 bonus coins).<br/><br/>Buyers receive coins into their Qrystalnet accounts.</td>
+          </tr>
+          <tr class="color1">
+            <td class="tableData2 dmarker row1">9th – 23rd August, 2021</td><td class="tableData2 row2">PRE-ICO SALE<br/>2nd Phase</td><td class="tableData2 row3">Qrystalnet blockchain is launched; Qrystal is deployed.<br/><br/>25% bonus on each new purchase of Qrystal coins (capped at 25,000 bonus coins).<br/><br/>1st-Phase buyers' qrystals are transferred into their respective wallets; new buyers receive qrystals directly into their wallets.</td>
+          </tr>
+          <tr class="color2">
+            <td class="tableData2 dmarker row1">24th – 31st August, 2021</td><td class="tableData2 row2">PRE-ICO SALE<br/>3rd Phase</td><td class="tableData2 row3">15% bonus on each new purchase of qrystals (capped at 50,000 bonus coins).</td>
+          </tr>
+          <tr class="color1">
+            <td class="tableData2 dmarker row1 ">1st – 30th September, 2021</td><td class="tableData2 row2">CROWDSALE</td><td class="tableData2 row3">Qrystals are sold at full value. No bonuses.</td>
+          </tr>
+          <tr class="color2">
+            <td class="tableData2 dmarker row1">1st October 2021 and beyond</td><td class="tableData2 row2">ACTIVATION</td><td class="tableData2 row3">Qrystals can now be transferred from one wallet to another and used to make payments within the Qrystalnet ecosystem.</td>
+          </tr>
+        </table>
+      </div>  
+    </section>
+
+    <section class="s2" id="htsect">
+      <div>
+        <div class="centered" id="HTTop">
+          <h1 class="sectionHeadings" id="howto">HOW TO BUY QRYSTALS</h1>
+          <img src="Images/Pointer.jpg" alt="Pointer" class="pointer"/>
+          <p class="pgtxt buyP1"><strong>For 1st-Phase Pre-Sale Participants Only:</strong>
+          <p class="pgtxt centered2" id="buytxt" style="width: 400px;">From 25th July to 8th August, 2021, you can buy qrystals using either of the following methods:</p>
+        </div>
+        <div class= "arr2" id="bigbox">
+          <div class="boxy optAbox">
+            <h2 class="subH" id="optA">Option A</h2>
+            <img src="Images/Bitcoin.jpg" alt="Crypto Coins" class="imgcoins boxwd"/>
+            <div class="boxwd" id="crbox">
+              <p class="pgtxt payhow">Pay with Cryptocurrency</p>
+              <p class="pgtxt paydesc">Pay the equivalent amount of bitcoin (BTC), ether (ETH) or tether (USDT) to the appropriate wallet address, as listed<br>below:
+                ​<br/><br/><br/>
+                <strong>Wallet Addresses</strong>
+                <br/><br/>
+                For Bitcoin (BTC) payments:</p>
+                <p class="pgtxt paydesc add clk"><strong>bc1qkucvwr90l73znh00vfrlu9mhqjd5dfx4msuudx</strong></p>
+                <button name="cbt" class="cbt" id="cbt1" onclick="copbi()">Copy</button>
+                <br/><br/>
+                <p class="pgtxt paydesc">For Ethereum (ETH) or Tether USD (USDT) payments:</p>
+                <p class="pgtxt paydesc add clk"><strong>0x19C9C66Ce11615113633FcC1D29a998C2DB023a0</strong></p>
+                <button name="cet" class="cbt" id="cet1" onclick="copet()">Copy</button>
+            </div>
+          </div>    
+          <div class="boxy" id="optBbox">
+            <h2 class="subH" id="optB">Option B</h2>
+            <img src="Images/Paper Money.jpg" alt="Paper Money" class="imgcoins boxwd"/>
+            <div class="boxwd" id="fiatbox">
+              <p class="pgtxt payhow">Pay with Fiat Currency</p>
+              <p class="pgtxt paydesc">If you prefer to buy qrystals using traditional fiat currencies (USD, GBP, etc.), go ahead and pay here: <a href="https://paystack.com/pay/qrystal" class="txt-link">www.paystack.com/pay/rubi</a>.</p>
+            </div>  
+          </div>
+        </div>
+        <div id="nubipin">  
+          <img src="Images/Pointer.jpg" alt="Lightbulb" class="boxy"/>
+          <button name="nubipin" id="nubipinb" onclick="opennubi()">
+            Tips for first-time crypto buyers
+            <img src="Images/Pointer.jpg" alt="Pointer" class="pointer boxy" id="lnhow"/>
+          </button>
+        </div>
+        <div id="newbie">
+          <img src="Images/Pin.jpg" id="pin"/>
+          <p class="pgtxt" id="nubitxtHd"><strong>FIRST TIME CRYPTO USER?  IT'S EASY!</strong></p>
+          <div id="nucol">
+            <p class="pgtxt nubi">
+              If you're new to cryptocurrency and don't yet own any crypto, follow these 4 easy steps to pay for qrystal coins with bitcoin, ether or tether:
+              <br/><br/>
+              <strong>1.</strong> Sign up with a cryptocurrency exchange that works in your country (such as Binance, Coinbase, Luno, etc.). Once you've signed up, buying bitcoins or any other cryptocurrency is as easy as making any payment online using your credit/debit card.
+              <br/>
+              <strong>2.</strong> Buy some bitcoin (BTC), ether (ETH) or tether (USDT).  
+              <br/>
+              <strong>3.</strong> Create a wallet account with a digital wallet provider (e.g. Mycellium). This is so you can store your tokens away from the exchange (off-exchange storage wallets are more secure). Move your coins into this new wallet.
+              <br/>
+              <strong>4.</strong> From your newly-funded off-exchange wallet, send the amount of BTC, ETH or USDT that's equivalent to how much qrystals you want. Depending on the currency you're paying with, send to one of the wallet addresses listed below:
+              <br/><br/>
+              &nbsp &nbsp For Bitcoin (BTC) payments:          
+              <br/>
+              <span class="add clk"><strong>&nbsp &nbsp bc1qkucvwr90l73znh00vfrlu9mhqjd5dfx4msuudx</strong></span>
+              <button name="cbt" class="cbt" id="cbt2" onclick="copbi()">Copy</button>​
+              <br/><br/>
+              &nbsp &nbsp For Ethereum (ETH) or Tether USD (USDT) payments: 
+              <br/>
+              <span class="add clk"><strong>&nbsp &nbsp 0x19C9C66Ce11615113633FcC1D29a998C2DB023a0</strong></span>
+              <button name="cet" class="cbt" id="cet2" onclick="copet()">Copy</button>
+            </p>
+          </div>
+        </div>
+        <div id="allHd">
+          <img src="Images/Pointer.jpg" alt="Pointer" class="pointer centered"/>
+          <p class="pgtxt buyP1" id="allHT"><strong>For all other Pre-ICO and ICO participants:</strong></p>
+        </div>
+        <div class="arr3 wrap" id="optC">
+          <div class="boxwd boxy" id="allbox">
+            <p class="pgtxt payhow">Buy on Our Token Sale Website</p>
+            <p class="paydesc pgtxt" id="alltxt">To buy qrystals during Phases 2 & 3 of the Pre-Sale and during the ICO, you will be required to visit this website <a href="crowdsale.html" class="txt-link">(www.qrystalnet.com/crowdsale)</a>. We'll be selling qrystals exclusively on this website for the rest of the Sale period.
+            <br/><br/>  ​
+            You'll have the option of paying with Bitcoin (BTC), Ether (ETH), Tether (USDT) or fiat currency (USD, GBP, etc.).</p>
+          </div>
+          <img src="Images/All Money.jpg" alt="Fiat & Crypto" class="imgcoins" id="imgall"/>
+        </div>
+        
+        <div class="central" id="postcol">
+          <h2 class="subH centered" id="postHd">Final Step – Sign up</h2>
+          <div class="centered" id="ptxb">
+            <p class="pgtxt" id="postint">
+              <strong>Before or right after you complete payment, please sign up using the registration form on the <a href="signup" style="color: #c7dbff; text-decoration: none;">Sign Up</a> page of this website. We'll need the details you provide so we can send your tokens to your wallet and so we can contact you if necessary.</strong>
+    ​        </p>  
+            <br/>  
+            <p class="pgtxt" id="posttxt">
+              <em>After you submit the Signup form AND make payment, you'll be able to log in on this site to check on your qrystal coins, and buy more whenever you wish.</em>
+            </p>
+          </div>
+        </div>
+      </div>  
+    </section>
+    
+    <section id="wom">
+      <div id="womd">  
+        <p class="sectionHeadings" id="adtxt">Tell your friends about
+          <br/> Qrystal and earn rewards
+        </p>
+        <button type="button" name="adbtn" id="adbtn" class="clk" onclick="shonotif()">Yes!</button>
+        <div id="notif1" role="alert">
+          <div id="bg">
+            <p class="pgtxt" id="nt1"><em>Redirecting...</em></p>
+            <p class="pgtxt" id="nt2">You'll have to sign in to continue</p >
+          </div>  
+        </div>
+      </div>
+    </section>
+
+    <section class="s2" id="note1">
+      <div class="arr5 content">
+        <img src="Images/Building Blocks.jpg" class="rightopp" id="blocks"/>
+        <div class="rightcol" id="recact">
+          <h1 class="sectionHeadings">A WORD ON QRYSTAL'S FUNCTION</h1>
+          <p class="pgtxt" id="wotx">
+            As stated earlier, Qrystal is a utility token. This means that its sole function is: for use in transactions within the Qrystalnet ecosystem. Qrystal is NOT a get-rich-quick scheme. There is no guarantee that its value will rise dramatically like that of Bitcoin and other successful coins. While we naturally hope for high demand levels (which would positively impact Qrystal's value), we can not make promises based on projections.
+  ​          <!--
+            <br/><br/> 
+            You should read the Token Purchase Agreement before you proceed to participate in the Qrystal crowdsale. Visit the Legal page to view the <a href="legal/#Token Sale" class="txt-link">Agreement</a>. Cryptocurrency and blockchain are relatively new technologies and carry a high level of risk. You would do well to understand the risks that are inherent in your purchase of Qrystal coins.
+            -->         
+          </p>
+        </div>
+      </div>  
+    </section>
+
+    <section class="s2">
+      <div class="arr content">
+        <div class="leftcol boxy" id="earlybird">
+          <h1 class="sectionHeadings" id="ebHd">GET IN EARLY ON A GOOD THING</h1>
+          <p class="pgtxt">
+            By purchasing qrystals during the Pre-Sale stage, you become a pioneer qrystal adopter, helping a young company bring its projects to life. For participating at such an early stage, you will receive instant bonus tokens and, subsequently, have the opportunity to get our products early when they launch.
+            <br/><br/>​
+            The platforms, products and services that make up the Qrystalnet ecosystem are front-line innovative solutions: software applications that set a new standard in user experience; electronic and mechanical devices that greatly enhance productivity and user comfort; and urban development projects that improve the society.
+  ​          <br/><br/> 
+            See the section titled <a href="#how to buy" class="txt-link">"How to Buy Qrystals"</a> for a guide on purchasing qrystals.
+          </p>
+        </div>  
+        <img src="Images/Early Bird.jpg" class="leftopp" id="nyb" style="object-fit: cover; object-position: 80% 0;"/>
+      </div>  
+    </section>
+
+    <section class="s2">
+      <div class="arr5 content">
+        <img src="Images/Info.jpg" class="rightopp" id="imginf"/>
+        <div class="rightcol" id="wordof">
+          <h1 class="sectionHeadings">FURTHER INFORMATION</h1>
+          <p class="pgtxt">The Qrystalnet white paper will provide a detailed description of the Qrystal coin, including the technical details of its operation. Parts of the white paper are available <a href="white-paper" class="txt-link">here</a>. The full document will be released shortly.</p>
+        </div>
+      </div>  
+    </section>
+
+    <section class="s2" id="git">
+      <div class="content">
+        <div id="gitdiv">
+          <p class="centered gittx" id="gitHd">We'd be happy to Hear From You.</p>
+          <p class="centered gittx" id="git2">You Can Reach Us Through Any of the Following Channels:</p>
+          <p class="pgtxt centered" id="cntdet">qrystalstudios@gmail.com <!--hello@qrystalnet.com--> </p>
+          <div class="centered" id="socdv">
+            <a href="https://facebook.com/" class="socials2" alt="Facebook Logo" target="_blank"><span style="color: rgb(66, 103, 178)"><i class="fab fa-facebook-square fa-5x"></i></span></a>
+            <a href="https://twitter.com/" class="socials2" alt="Twitter Logo" target="_blank"><span style="color: #00acee"><i class="fab fa-twitter-square fa-5x"></i></span></a>
+            <!--<img src="Images/qr.jpg" class="socials2">-->
+          </div>
+        </div>
+      </div>  
+    </section>
+
+    <section class="s2">
+      <div class="content">
+        <div id="exp">
+          <h1 class="sectionHeadings centered">A BRIEF NOTE ON THE CONCEPT<br/>OF THE CROWDSALE</h1>
+          <p class="pgtxt">
+            The world's greatest economies were built by regular people. At any given point in time, billions of people contribute to the global economy – most of them as consumers; others as production staff, business proprietors or business backers.
+            <br/><br/>
+            <strong>The Role of Business Backers</strong>
+            <br/>
+            For decades, business proprietors have depended on the stock market as a channel for raising operational capital. When a company first "goes public", it offers its shares to the public in an initial public offering (IPO). Subsequently, holders of those shares trade them in the stock market. Shareholders may sell their shares after short periods or hold onto ownership for long periods, even buying additional units of a consistently successful company's shares. This way, many of the world's largest companies stay flush with cash and so maintain high productivity levels, which is one of the factors that make for a robust economy.
+            <br/><br/>
+            <strong>From IPO to ICO/Crowdsale</strong>
+            <br/>
+            Nowadays, tech companies often prefer to raise capital through an Initial Coin Offering (ICO) or Crowdsale*, which is an offering of a large quantity of a unique cryptocurrency or cryptographic token created by the company. In this way, companies like Ethereum, Neo, and Iota, to mention a few, have become big players in the global economy.
+            ​<br/><br/>
+            We have chosen to go the Crowdsale route and, this way, get our products out quickly and smoothly.
+          <br/><br/>
+          </p>
+          <p class="pgtxt" id="endnote" style="font-size: 14px;"><em>* An ICO and a Crowdsale are very similar.</em></p>
+        </div>
+      </div>    
+    </section>
+
+    <!--
+    <section class="s2" id="altbgc">
+      <div class="centered" id="corp">
+        <div class="boxy" id="imglog">
+          <img src="Images/Logo.png"/>
+          <h5 id="namlog">Qazar</h5>
+        </div>
+        <div class="boxy" id="qzr">
+          <p class="pgtxt" id="qzrtxt">
+            <em><strong>FUN FACT:</strong> 
+            <br/>
+            "Qazar" is a play on the word "Bazaar", which is a synonym for "marketplace". The Qazar app is our flagship app. It is an online marketplace, hence the name.</em>
+          </p>
+        </div>
+        <div class="central" id="forbtnst">
+          <button name="btnstat" id="btnstat" class="pgtxt centered">Qazar's current status</button>    
+        </div>        
+      </div>
+    </section>
+    -->
+
+    <section id="fdrsect" class="s2 content arrrev">
+      <div id="fdrcol">
+        <h6 id="tophd">Founder's Note</h6>
+        <p class="optxt optxtlo" id="fdrtop">Hi, I'm Dennis Benson<br>- music producer, audio engineer, estate surveyor, <br>and longtime tech enthusiast.</p>
+        <p class="optxt optxtlo" id="opt1">I'm the founder of Qrystalnet (soon to be Qrystalnet LLC), a technology company that will be based in Gibraltar and maintain branches around the world. I've been privately developing software applications since 2016 and am now set to build out a team and formally launch the company.</p>
+        <br/>
+        <p class="optxt optxtlo" id="opt2">Running an enterprise that's still entirely in the R&D phase can be financially exhausting. I'm now at the point where my first few products are nearing completion. In a bid to raise operational capital, I'll be starting out with the Qrystalnet blockchain and Qrystal, its cryptocurrency, both of which I've been developing for some time now. My team and I will hold a crowdsale in the month of September 2021, to help fast-track global Qrystal adoption and raise capital for the company's projects.
+        <br><br>
+        Qrystalnet's products will give everyone the chance at an improved way of life. The best way to complete transactions on these products is to use qrystals. I encourage you to get your qrystals as soon as you possibly can. Your support for the Qrystalnet project will be highly appreciated, and will be a win-win for all involved - for you, and for us at Qrystalnet.</p>
+      </div>
+      <img src="Images/portrait.jpg" id="imgfdr">
+    </section>
+    
+    <section class="s2">
+      <div class="content">
+        <div class="arr">
+          <div class="leftcol" id="fnltxt">
+            <h1 class="sectionHeadings">FINAL NOTE</h1>
+            <P class="pgtxt">
+              Technology continues to improve our lives with new inventions that make doing work easier than ever before. The apps and platforms that the Qrystalnet blockchain supports will carry on this tradition, and before long, Qrystalnet LLC will come to be known as a major driver of the 4th industrial revolution. "Qrystals" will become a household word, known all around the world by people who own use qrrystal coins. You have a chance to become one of the first people to own qrystals. I hope you go ahead and take it!
+              <br/><br/>  
+              Thanks for taking the time to visit the Qrystalnet website. We look forward to your participation in Qrystalnet's launch.
+            </P>
+          </div>
+          <img src="Images/Street.jpg" class="leftopp" id="upward" style="object-fit: cover";/>
+        </div>
+          <div id="forbtngit">
+          <button name="btngit" id="btngit" class="clk">Get in touch</button>
+        </div>
+      </div>    
+    </section>
+
+    <div id="ovcopsec">
+      <p class="pgtxt" id="ovcoptxt">Copied</p>
+              </div>
+        
+    <footer>
+      <p id="ftrtxt">©2020 - 2021 Dennis U. Benson</p>
+    </footer>
+
+    <script>
+      var cop = document.getElementById("ovcopsec");
+      
+      function showBtn() {
+        document.getElementById("btnsup").style.visibility = "visible";
+        setTimeout(hideBtn, 100000)
+      }
+
+      function hideBtn() {
+        document.getElementById("btnsup").style.visibility = "hidden";
+      }
+
+      function rethome() {
+        window.location.href = "index.html";
+      }
+
+      function copbi() {
+
+        cop.style.display = "flex";
+        setTimeout(hideCop, 1000); 
+      }
+
+      function copet() {
+        const crtxt = doocument.querySelectorAll('.add');
+        crtxt.forEach(txt => {
+          txt.addEventListener('click', () => {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(txt);
+            selection.removeAllRanges();
+            selcetion.addRange(range);
+            
+            try {
+              document.execCommand('copy');
+              selection.removeAllRanges();
+              cop.style.display = "flex";
+              setTimeout(() => {
+                cop.style.display = "none";
+               }, 2000);
+            }
+            catch(e) {
+              const errmsg = document.querySelector('.errmsg');
+              errmsg.classList.add('show');
+              setTimeout(() => {
+                errmsg.classList.remove('show');
+              }, 2000);
+            }  
+          })
+        })
+        
+      }
+
+      function hideCop() {
+        cop.style.display = "none";
+      }
+      
+      function opennubi() {
+        var nubart = document.getElementById("newbie");
+        
+        if (nubart.style.display !== "block") {
+          nubart.style.display = "block";
+        }
+        else {
+          nubart.style.display = "none";
+        }  
+      }
+
+      function shonotif() {
+        document.getElementById("adbtn").style.visibility = "hidden";
+        document.getElementById("notif1").style.display = "flex"
+        setTimeout(hideBtn, 1000);
+        
+        fetch('dataStore.php')
+        .then(function(response) {
+          console.log(response);
+          //return response.json();
+          return response;  
+        })  
+        .then(function(response) {
+          console.log(response[0]);
+          if(response !== "NULL") {
+            console.log("go to page");
+            //window.location.href = "../user/index.php";
+          }
+          else {
+            console.log("go to signin");
+            //window.location.href = "../signin.php";
+          }
+        })
+        .catch(function(error) {
+          console.log(error);
+        });  
+      }
+
+      function hideBtn() {
+        document.getElementById("notif1").style.display = "none";
+        document.getElementById("adbtn").style.visibility = "visible";
+      }
+    </script>
+
+    
+  </body>
+</html>                     
